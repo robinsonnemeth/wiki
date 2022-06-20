@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    {% if duplicate == True %}
+        <div class="alert alert-danger" role="alert">The Page {{ title }} already exists</div>
+    {% endif %}
+    {% if edit == True %}
+        <h1>Edit Page {{ name }}</h1>
+    {% else %}
+        <h1>New Page</h1>
+    {% endif%}
+
+    <form action="{% url 'newEntry' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" name="btn">
+    </form>
+
+{% endblock %}

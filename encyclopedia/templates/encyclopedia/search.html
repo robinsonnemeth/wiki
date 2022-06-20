@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <div align="right" class="mr-5">
+        <a href="{% url 'editPage' entry=name %}" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-pencil"></span> Edit
+        </a>
+    </div>
+    <ul>
+        <li>{{ entry|safe }}</li>
+    </ul>
+
+{% endblock %}
